@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseForge Fitness Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-top"></div>
+  <div class="glow glow-bottom"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Performance Dashboard</p>
+      <h1>PulseForge Fitness Tracker</h1>
+      <p class="subtitle">Track training sessions, monitor weekly totals, and keep momentum visible.</p>
+    </header>
+
+    <section class="panel panel-form">
+      <h2>Add Workout</h2>
+      <form id="workoutForm" class="workout-form">
+        <label>
+          Date
+          <input type="date" id="date" required>
+        </label>
+        <label>
+          Workout Type
+          <input type="text" id="type" placeholder="Strength, Run, Yoga..." required>
+        </label>
+        <label>
+          Duration (minutes)
+          <input type="number" id="duration" min="1" max="600" required>
+        </label>
+        <label>
+          Calories Burned
+          <input type="number" id="calories" min="1" max="5000" required>
+        </label>
+        <button type="submit">Log Workout</button>
+      </form>
+    </section>
+
+    <section class="stats-grid">
+      <article class="panel stat-card">
+        <h3>Total Workouts</h3>
+        <p id="totalWorkouts">0</p>
+      </article>
+      <article class="panel stat-card">
+        <h3>This Week Minutes</h3>
+        <p id="weekMinutes">0</p>
+      </article>
+      <article class="panel stat-card">
+        <h3>This Week Calories</h3>
+        <p id="weekCalories">0</p>
+      </article>
+      <article class="panel stat-card">
+        <h3>Most Common Type</h3>
+        <p id="topType">-</p>
+      </article>
+    </section>
+
+    <section class="panel panel-table">
+      <div class="table-head">
+        <h2>Workout History</h2>
+        <button id="clearAll" class="ghost-btn" type="button">Clear All</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Calories</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="workoutTableBody"></tbody>
+        </table>
+      </div>
+      <p id="emptyState" class="empty-state">No workouts logged yet. Add your first session.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
